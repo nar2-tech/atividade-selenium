@@ -1,30 +1,68 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.action_chains import ActionChains
-import time
+Automação com Selenium – Wikipédia Educação
 
-driver = webdriver.Chrome()
+Este projeto demonstra o uso do Selenium WebDriver em Python para automatizar a navegação em um site informativo, realizar extração de conteúdo e simular interações com o teclado.
 
-driver.get("https://pt.wikipedia.org/wiki/Educa%C3%A7%C3%A3o")
-time.sleep(2)
+O site utilizado é a Wikipédia, na página sobre Educação, por ser um conteúdo didático e informativo.
 
-titulo = driver.find_element(By.CSS_SELECTOR, "h1").text
-print("TÍTULO DA PÁGINA:")
-print(titulo)
 
-paragrafos = driver.find_elements(By.CSS_SELECTOR, "p")
-print("\nPARÁGRAFOS:")
-for p in paragrafos[:3]:
-    print("-", p.text)
+Tecnologias Utilizadas
 
-campo_busca = driver.find_element(By.CSS_SELECTOR, "input")
-campo_busca.click()
-campo_busca.send_keys("Python")
-campo_busca.send_keys(Keys.TAB)
+* Python 3
+* Selenium WebDriver
+* Google Chrome
+* ChromeDriver
 
-actions = ActionChains(driver)
-actions.key_down(Keys.CONTROL).send_keys('a').send_keys('c').key_up(Keys.CONTROL).perform()
 
-time.sleep(3)
-driver.quit()
+Funcionalidades do Script
+
+O script realiza as seguintes ações:
+
+1. Abre o navegador Google Chrome
+2. Acessa a página da Wikipédia sobre Educação
+3. Captura e exibe o título da página
+4. Coleta e imprime os três primeiros parágrafos do conteúdo
+5. Interage com o campo de busca da página
+6. Simula comandos de teclado (Ctrl + A e Ctrl + C)
+7. Fecha o navegador automaticamente
+
+Código Utilizado
+
+O código principal está escrito em Python e utiliza seletores CSS para localizar elementos da página, além de ações de teclado para simular interações do usuário.
+
+Como Executar o Projeto
+
+1. Instale o Python 3 em sua máquina
+2. Instale o Selenium:
+
+   ```bash
+   pip install selenium
+   ```
+3. Baixe o **ChromeDriver** compatível com sua versão do Google Chrome
+4. Coloque o ChromeDriver no PATH do sistema ou na mesma pasta do projeto
+5. Execute o arquivo Python:
+
+   ```bash
+   python nome_do_arquivo.py
+   ```
+
+ Exemplo de Saída no Console
+
+* Título da página
+* Texto dos três primeiros parágrafos do artigo
+
+Essas informações são exibidas diretamente no terminal.
+
+
+Objetivo Educacional
+
+Este projeto tem como objetivo praticar:
+
+* Automação de navegador
+* Web scraping básico
+* Uso de seletores CSS
+* Simulação de ações do usuário com Selenium
+
+Aluna:
+Nicole Araújo
+Atividade– Selenium e Python
+
